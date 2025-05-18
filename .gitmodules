@@ -1,0 +1,6 @@
+[submodule "ms-frontend"]
+	path = ms-frontend
+	url = https://github.com/2025-PNU-CC-TERM-PROJECT/ms-frontend
+[submodule "ms-backend"]
+	path = ms-backend
+	url = https://github.com/2025-PNU-CC-TERM-PROJECT/ms-backend
