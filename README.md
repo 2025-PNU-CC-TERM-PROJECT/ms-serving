@@ -21,7 +21,7 @@
 ## Clone this Project
 ```bash
 # 1. 서브모듈까지 포함하여 전체 프로젝트 클론
-git clone --recurse-submodules https://github.com/your-org/your-project.git
+git clone --recurse-submodules https://github.com//2025-PNU-CC-TERM-PROJECT/ms-serving.git
 
 # 2. 이미 클론했다면, 서브모듈 수동 초기화
 git submodule init
