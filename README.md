@@ -18,3 +18,14 @@
 | **Spring Boot** | Backend API for managing models |
 | **Next.js** | Frontend for user interface|
 
+## Clone this Project
+```bash
+# 1. 서브모듈까지 포함하여 전체 프로젝트 클론
+git clone --recurse-submodules https://github.com/your-org/your-project.git
+
+# 2. 이미 클론했다면, 서브모듈 수동 초기화
+git submodule init
+git submodule update
+```
+
+
