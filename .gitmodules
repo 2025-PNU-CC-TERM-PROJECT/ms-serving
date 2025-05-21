@@ -4,3 +4,6 @@
 [submodule "ms-backend"]
 	path = ms-backend
 	url = https://github.com/2025-PNU-CC-TERM-PROJECT/ms-backend
+[submodule "infra"]
+	path = infra
+	url = https://github.com/2025-PNU-CC-TERM-PROJECT/infra
