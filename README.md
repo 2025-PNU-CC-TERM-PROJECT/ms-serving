@@ -105,8 +105,12 @@ git clone --recurse-submodules https://github.com/2025-PNU-CC-TERM-PROJECT/ms-se
 2. 인프라 디렉토리로 이동
 cd ./ms-serving/infra
 
-3. 설치 스크립트 실행
+3. 도커 레지스트리 환경변수 설정
+export DOCKER_REGISTRY=your-dockerhub-username
+
+4. 설치 스크립트 실행
 ./setup.sh
+
 ```
 
 ---
