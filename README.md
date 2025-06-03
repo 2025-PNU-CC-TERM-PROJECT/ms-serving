@@ -2,6 +2,22 @@
 
 클라우드 네이티브 마이크로서비스 기반 AI 모델 서빙 플랫폼
 
+## 📚 목차 (Table of Contents)
+
+- [A. 프로젝트 명](#a-프로젝트-명)
+- [B. 프로젝트 멤버 및 담당 파트](#b-프로젝트-멤버-및-담당-파트)
+- [C. 프로젝트 소개](#c-프로젝트-소개)
+- [D. 프로젝트 필요성 소개](#d-프로젝트-필요성-소개)
+- [E. 관련 기술 / 논문 / 특허 조사 내용 소개](#e-관련-기술--논문--특허-조사-내용-소개)
+- [F. 프로젝트 개발 결과물 소개](#f-프로젝트-개발-결과물-소개)
+  - [🗂️ 시스템 아키텍처 다이어그램](#️-시스템-아키텍처-다이어그램)
+  - [⚙️ 주요 구성 요소 - Stack Overview](#️-주요-구성-요소---stack-overview)
+- [G. 개발 결과물 사용하는 방법](#g-개발-결과물-사용하는-방법)
+  - [✅ 사전 준비 사항 (Prerequisites)](#-사전-준비-사항-prerequisites)
+  - [🛠 설치 과정(Setup)](#-설치-과정setup)
+  - [🌐 접속 방법 (Access URLs)](#-접속-방법-access-urls)
+- [H. 개발 결과물 활용 방안](#h-개발-결과물-활용-방안)
+
 ---
 
 ## A. 프로젝트 명
@@ -45,32 +61,79 @@ Kubernetes 기반 인프라 위에 KServe, Knative, Istio 등을 활용하여 �
 
 ## F. 프로젝트 개발 결과물 소개
 
-### 시스템 아키텍처 다이어그램
+### 🗂️ 시스템 아키텍처 다이어그램
 ![시스템 아키텍처](assets/systemArc.png)
 
-### 주요 구성 요소 - Stack Overview
+### ⚙️ 주요 구성 요소 - Stack Overview
 
-| Component   | Description |
-|-------------|-------------|
-| KServe      | Model serving CRD (InferenceService) manager |
-| Knative     | Serverless deployment of model services (scale-to-zero, auto-scaling) |
-| Istio       | Ingress routing and traffic control |
-| Spring Boot | Backend API for managing models |
-| Next.js     | Frontend for user interface |
+| 🧱 구성 요소 | 📋 설명 |
+|-------------|---------|
+| 📦 **KServe** | 머신러닝 모델 서빙을 위한 Kubernetes CRD 플랫폼 |
+| 🚀 **Knative** | 서버리스 기능 제공 (auto-scaling, scale-to-zero) |
+| 🌐 **Istio** | 서비스 메시, 트래픽 라우팅 및 보안 관리 |
+| 🧩 **Spring Boot** | 백엔드 API 서버 |
+| 🎨 **Next.js** | 사용자 프론트엔드 UI |
 
 ## G. 개발 결과물 사용하는 방법
 
-### 설치 방법
+### ✅ 사전 준비 사항 (Prerequisites)
 
+아래의 SW가 **사전 설치**되어 있어야 합니다:
+- [Node.js & npm](https://nodejs.org/)
+- [Docker](https://www.docker.com/)  
+- [kubectl](https://kubernetes.io/docs/tasks/tools/)  
+- [Helm](https://helm.sh/docs/intro/install/)
+
+설치 여부 확인 예시:
 ```bash
-# 1. 서브모듈까지 포함하여 전체 프로젝트 클론
+node -v && npm -v
+docker -v
+kubectl version --client
+helm version
+```
+> Docker에 login되어 있어야 합니다.
+---
+
+### 🛠 설치 과정(Setup)
+```bash
+1. 저장소 클론 (서브모듈 포함)
 git clone --recurse-submodules https://github.com/2025-PNU-CC-TERM-PROJECT/ms-serving.git
 
-# 2. 이미 클론했다면, 서브모듈 수동 초기화
-git submodule init
-git submodule update
+2. 인프라 디렉토리로 이동
+cd ./ms-serving/infra
+
+3. 설치 스크립트 실행
+./setup.sh
 ```
-### 접속 방법 
+
+---
+
+### 🌐 접속 방법 (Access URLs)
+
+#### 🖥️ 프론트엔드
+
+- **Frontend App**:  
+  [`http://ms-frontend.ms-frontend.{MAGIC_DOMAIN}`](http://ms-frontend.ms-frontend.{MAGIC_DOMAIN})
+> `MAGIC_DOMAIN` 값은 클러스터 외부 IP 또는 도메인 설정에 따라 자동 할당됩니다.
+---
+
+#### 🤖 AI 서비스
+
+| 서비스 종류 | URL |
+|-------------|-----|
+| AI Image 서비스 | [`http://ai-image-serving.ms-models.${MAGIC_DOMAIN}/v1/models/mobilenet:predict`](http://ai-image-serving.ms-models.${MAGIC_DOMAIN}/v1/models/mobilenet:predict) |
+| AI Text 서비스 | [`http://ai-text-serving.ms-models.${MAGIC_DOMAIN}/v1/models/kobart-summary:predict`](http://ai-text-serving.ms-models.${MAGIC_DOMAIN}/v1/models/kobart-summary:predict) |
+> 해당 url에 curl로 요청을 보낼 수도 있습니다.
+---
+
+#### 📊 모니터링 도구
+
+| 도구 | URL |
+|------|-----|
+| **Kiali (서비스 메시 시각화)** | [`http://kiali.${MAGIC_DOMAIN}`](http://kiali.${MAGIC_DOMAIN}) |
+| **Prometheus (메트릭 수집)** | [`http://prometheus.${MAGIC_DOMAIN}`](http://prometheus.${MAGIC_DOMAIN}) |
+| **Grafana (대시보드 시각화)** | [`http://grafana.${MAGIC_DOMAIN}`](http://grafana.${MAGIC_DOMAIN}) |
+| **Jaeger (트레이싱 분석)** | [`http://jaeger.${MAGIC_DOMAIN}`](http://jaeger.${MAGIC_DOMAIN}) |
 
 ## H. 개발 결과물 활용 방안
 
