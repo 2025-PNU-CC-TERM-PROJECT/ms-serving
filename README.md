@@ -78,7 +78,7 @@ Kubernetes 기반 인프라 위에 KServe, Knative, Istio 등을 활용하여 �
 
 ### ✅ 사전 준비 사항 (Prerequisites)
 
-아래의 SW가 **사전 설치**되어 있어야 합니다:
+1. 아래의 SW가 **사전 설치**되어 있어야 합니다:
 - [Node.js & npm](https://nodejs.org/)
 - [Docker](https://www.docker.com/)  
 - [kubectl](https://kubernetes.io/docs/tasks/tools/)  
@@ -92,6 +92,9 @@ kubectl version --client
 helm version
 ```
 > Docker에 login되어 있어야 합니다.
+
+2. 쿠버네티스 클러스터가 설정되어있어야 합니다. ex) GKE, EKS
+> auto-pilot 모드에서는 실행되지 않습니다.
 ---
 
 ### 🛠 설치 과정(Setup)
