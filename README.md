@@ -2,6 +2,14 @@
 
 클라우드 네이티브 마이크로서비스 기반 AI 모델 서빙 플랫폼
 
+## 📁 서브 모듈 구성
+
+| 디렉토리 이름     | 설명 |
+|------------------|------|
+| [infra](https://github.com/2025-PNU-CC-TERM-PROJECT/infra)        | Istio, Knative, KServe, 모니터링 도구를 포함한 Kubernetes 인프라 설치 스크립트 및 설정 파일 |
+| [ms-backend](https://github.com/2025-PNU-CC-TERM-PROJECT/ms-backend)    | Spring Boot 기반 백엔드 서비스. PostgreSQL과 연동되며 REST API 및 AI 모델 요청 처리 담당 |
+| [ms-frontend](https://github.com/2025-PNU-CC-TERM-PROJECT/ms-backend)   | Next.js 기반 프론트엔드. 사용자 인터페이스 제공 및 Grafana/Kiali 등 외부 도구 연동 UI 제공 |
+
 ## 📚 목차 (Table of Contents)
 
 - [A. 프로젝트 명](#a-프로젝트-명)
