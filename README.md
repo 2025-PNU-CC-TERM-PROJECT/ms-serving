@@ -82,6 +82,12 @@ Kubernetes 기반 인프라 위에 KServe, Knative, Istio 등을 활용하여 �
 | 🧩 **Spring Boot** | 백엔드 API 서버 |
 | 🎨 **Next.js** | 사용자 프론트엔드 UI |
 
+### 시연 영상 링크 
+| 🔗 링크 | 📋 설명 |
+|-------------|---------|
+| 📦 [admin_demo](https://youtu.be/Da7VeaPqOzI) | 관리자 기능 - serverless , auto-scaling |
+| 🚀 [user_demo](https://youtu.be/BS88TTxOUJs) | 웹 클라이언트 인터페이스 |
+
 ## G. 개발 결과물 사용하는 방법
 
 ### ✅ 사전 준비 사항 (Prerequisites)
